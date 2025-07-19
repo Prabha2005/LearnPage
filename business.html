@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retail Software Development</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: url('https://source.unsplash.com/1600x900/?retail,store') no-repeat center center/cover;
+      color: white;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 60px;
+      gap: 40px;
+    }
+
+    .content {
+      flex: 1;
+      max-width: 50%;
+    }
+
+    .content h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      max-width: 400px;
+      flex-shrink: 0;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      border: none;
+      border-bottom: 2px solid #fff;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+    }
+
+    .form-container input:focus,
+    .form-container textarea:focus {
+      outline: none;
+      border-bottom: 2px solid #00c6ff;
+    }
+
+    .form-container button {
+      margin-top: 20px;
+      background: #00c6ff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .form-container button:hover {
+      background: #007d9c;
+    }
+
+    @media (max-width: 768px) {
+      .overlay {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .content, .form-container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="content">
+      <h1>Retail Software Development Company</h1>
+      <p>
+        Retail business extends far beyond just selling; it encompasses a comprehensive management system to enhance post-sales processes. 
+        Effective inventory management, procurement, expense tracking, and CRM are essential to scale your retail operations successfully.
+      </p>
+    </div>
+    <div class="form-container">
+      <form>
+        <input type="text" placeholder="Name*" required>
+        <input type="email" placeholder="Email*" required>
+        <input type="tel" placeholder="Phone*" required>
+        <textarea rows="4" placeholder="Your message"></textarea>
+        <button type="submit">Submit →</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

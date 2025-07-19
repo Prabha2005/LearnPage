@@ -1,0 +1,156 @@
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: url('https://source.unsplash.com/1600x900/?retail,store') no-repeat center center/cover;
+  color: white;
+}
+
+
+/*Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: rgb(250, 250, 250);
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.navbar .menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: #000; font-weight: bold;
+}
+
+.navbar .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000; 
+}
+
+.navbar .menu a:hover {
+  color: #00c6ff;
+  color: #000; font-weight: bold;
+}
+
+.navbar .contact {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #000; font-weight: bold;
+}
+
+.reach-btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: white;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #00c6ff;
+  transition: 0.3s;
+}
+
+.reach-btn:hover {
+  background: #00c6ff;
+  color: white;
+}
+
+.overlay {
+  background: rgb(151, 175, 182);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 60px;
+  gap: 40px;
+}
+
+.content {
+  flex: 1;
+  max-width: 50%;
+}
+
+.content h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 12px 0;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-bottom: 2px solid #00c6ff;
+}
+
+.form-container button {
+  margin-top: 20px;
+  background: #00c6ff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background: #007d9c;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .overlay {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .content, .form-container {
+    max-width: 100%;
+  }
+
+  .navbar .menu {
+    justify-content: center;
+    gap: 15px;
+  }
+}

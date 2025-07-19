@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Landing Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(120deg, #f8f9ff, #fef9f7);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6c63ff;
+            text-decoration: none;
+        }
+
+        .logo a strong {
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a,
+        .btn-login {
+            margin-top: 10px;
+        }
+
+        .nav-links a,
+        .nav-links i {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .btn-login {
+            background: #6c63ff;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .home-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 180px;
+            flex-wrap: wrap;
+        }
+
+        .text-content {
+            max-width: 50%;
+        }
+
+
+        .text-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #6c63ff;
+        }
+
+        .text-content h3 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn-join {
+            background: #6c63ff;
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .cap-icon {
+            width: 20%;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+
+        .image-box {
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-img {
+            width: 100vw;
+            max-width: 700px;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: #111111;
+        }
+
+        .active {
+            color: #6c63ff;
+        }
+
+        .floating-badge .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Badge positions */
+        .top-left {
+            top: -20px;
+            left: -10px;
+        }
+
+        .bottom-left {
+            bottom: -30px;
+            left: 0;
+        }
+
+        .bottom-center {
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+
+
+        .logo-icon {
+            height: 30px;
+            margin-right: 8px;
+        }
+
+
+        .platform-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 140px;
+            height: 100%;
+            background: linear-gradient(135deg, #4a4ac2, #655ce4);
+            color: #ffffff;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .shape-decor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 120px;
+            z-index: 0;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: orange;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .quarter {
+            width: 60px;
+            height: 60px;
+            background-color: #6c63ff;
+            border-top-left-radius: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 40px;
+        }
+
+        .offers-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 80px 100px;
+            margin-bottom: 100px;
+            align-items: center;
+            flex-wrap: wrap;
+            background: linear-gradient(to right, #fffafc, #fcfdfd);
+        }
+
+        .offers-pic {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .image-para {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+
+
+        .offer-btn {
+            border-radius: 10px;
+            max-width: 300px;
+            padding: 10px;
+            background-color: #0845b8;
+            font-size: 25px;
+        }
+
+        .offers-para {
+            font-size: 16px;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .offers-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: "Poppins", sans-serif;
+            color: #2b2c34;
+        }
+
+
+        .offers-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 40px;
+            margin-bottom: 30px;
+        }
+
+        .offer-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8f6ff;
+            padding: 16px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .icon-img {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .offer-card strong {
+            font-size: 14px;
+            color: #4b4b4b;
+        }
+
+        .offer-card i {
+            font-size: 20px;
+            color: #6c63ff;
+
+        }
+
+        .offer-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #6c63ff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .offer-btn:hover {
+            background-color: #574dcf;
+        }
+
+
+        .leftPara {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .rightPara {
+            flex: 1;
+            max-width: 40%;
+        }
+
+        .image-pic {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card {
+            background-color: rgb(247, 247, 247);
+        }
+
+        .pic {
+            width: 10%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .platform-title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .platform-para {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .bar-graph {
+            width: 90%;
+        }
+
+        .overview {
+            background-color: #2f2f88;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
+        .chart-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+
+        .text-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .overview-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .overview-para {
+            font-size: 14px;
+            color: #dcdcdc;
+            margin: 0;
+        }
+
+        .overview.book {
+            background-color: #030341;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-size: 24px;
+        }
+
+        .bg-container {
+            background: linear-gradient(to right, #f5e4ed, #ebc4e1);
+        }
+
+        .navbar {
+            background: linear-gradient(to right, #f5e4ed, #ebc4e1);
+        }
+
+        .latest-courses {
+            padding: 70px;
+            background-color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .latest-title {
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .latest-subtitle {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            font-family: "poppins", sans-serif;
+        }
+
+        .courses-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .latest-card {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            width: 360px;
+            text-align: left;
+            height: 200px;
+        }
+
+        .latest-pic {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-size: cover;
+        }
+
+        .i {
+            width: 21%;
+        }
+
+        .course-title {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+            font-size: 20px;
+        }
+
+        .course-info span i {
+            color: #f7b731;
+            margin-right: 6px;
+            font-size: 20px;
+        }
+
+        .price {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .nav-arrow {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            user-select: none;
+        }
+
+
+        .browse-courses {
+            padding: 390px;
+            background-color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            height: 500%;
+        }
+
+        .browse-title {
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .browse-subtitle {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            font-family: "poppins", sans-serif;
+        }
+
+        .browse-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .browse-card {
+            background: white;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            width: 360px;
+            text-align: left;
+            height: 200px;
+        }
+
+        .browse-pic {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-size: cover;
+        }
+
+        .browse-title {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .browse-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+            font-size: 20px;
+        }
+
+        .browse-info span i {
+            color: #f7b731;
+            margin-right: 6px;
+            font-size: 20px;
+        }
+
+        .price {
+            color: #f7b731;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .nav-arrow {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .pic-follow {
+            width: 60%;
+            object-fit: cover;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .follow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgb(2, 2, 68);
+            color: #ffffff;
+            padding: 80px;
+        }
+
+        .follow-left {
+            flex: 1;
+            max-width: 40%;
+        }
+
+        .follow-right {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .follow-card {
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 100px;
+            margin: 100px;
+            display: flex;
+        }
+
+        .follow-title {
+            font-size: 40px;
+        }
+
+        .follow-para {
+            font-size: 18px;
+            color: #e0e0e0;
+        }
+
+        .register {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px;
+            background: white;
+            background: linear-gradient(to right, #fff6e5, #f4f8ff);
+            color: #020202;
+        }
+
+        .left-reg {
+            flex: 1;
+            max-width: 40%;
+        }
+
+        .right-reg {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .pic-reg {
+            width: 70%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .reg-title {
+            font-size: 40px;
+            font-weight: bold;
+            width: 60%;
+            padding: 15px;
+        }
+
+        .reg-wid {
+            width: 50%;
+        }
+
+        .reg-subtitle {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .reg-btn {
+            font-size: 20px;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #2e3ecc;
+        }
+
+        .footer {
+            background: #fefefe;
+            font-family: sans-serif;
+            padding: 100px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-about {
+            flex: 1 1 250px;
+            max-width: 300px;
+        }
+
+        .brand {
+            color: #007bff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .p {
+            font-size: 18px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .fab {
+            margin-right: 10px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        .footer-links h4,
+        .footer-newsletter h4 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .footer-newsletter p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .newsletter-box {
+            display: flex;
+            margin-top: 10px;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .newsletter-box input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .newsletter-box button {
+            background: none;
+            border: none;
+            padding: 10px;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .para {
+            color: #888;
+            font-size: 25px;
+        }
+
+        .category-tab {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            color: #333;
+            background-color: transparent;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .category-tab.active {
+            background-color: #5d5fef;
+            color: white;
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .home-container,
+            .platform-section,
+            .offers-section,
+            .follow-steps,
+            .register,
+            .navbar {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .text-content,
+            .image-box,
+            .follow-left,
+            .follow-right,
+            .left-reg,
+            .right-reg {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .latest-card,
+            .browse-card {
+                width: 90%;
+                margin: 20px auto;
+            }
+
+            .courses-wrapper,
+            .browse-wrapper,
+            .footer-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .footer {
+                padding: 50px 20px;
+            }
+
+            .btn-join,
+            .offer-btn,
+            .reg-btn {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="bg-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Logo Icon" class="logo-icon">
+                <a href="#">Hope <strong>LMS</strong></a>
+            </div>
+            <div class="nav-links">
+                <a href="#">My Courses</a>
+                <a href="#">Support</a>
+                <i class="fas fa-shopping-cart"></i>
+                <button class="btn-login">Login</button>
+            </div>
+        </nav>
+
+        <section class="home-container">
+            <div class="text-content">
+                <h1>
+                    Build Your <span class="highlight">Skills </span>
+                    <img src="cap.png" alt="Graduation Cap" class="cap-icon">
+                </h1>
+                <h3>
+                    With Experts Any Time, Anywhere
+                </h3>
+                <p>
+                    Free online courses from the world's leading experts.<br />
+                    Join <strong>10+ million</strong> learners today.
+                </p>
+                <button class="btn-join">
+                    Join us today
+                </button>
+
+
+            </div>
+            <div class="image-box">
+                <img class="main-img w-30" src="male.png" alt="Student Image">
+                <div class="floating-badge top-left">
+                    <span><img src="leaf.png" alt="Active Students" class="icon">Lifetime Access</span>
+                </div>
+
+                <div class="floating-badge bottom-left" style="background-color: black; color: white;">
+
+                    <span><img src="two-people.png" alt="Active Students" class="icon"> 150k<br />
+                        <span class="active">Active Students</span></span>
+                </div>
+
+                <div class="floating-badge bottom-center" ">
+                    <img src=" boxes.png" alt="Online Courses" class="icon">
+                    <span>12 Online Courses</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Platform Section -->
+    <div class="platform-section">
+        <div class="leftPara">
+            <h2 class="platform-title">At a glance LMS Student platform</h2>
+            <p class="platform-para">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et. Nam, nulla est a
+                recusandae
+                molestiae provident enim aliquam, maxime sapiente expedita ab explicabo nesciunt quis debitis ipsam!
+            </p>
+            <div class="barPage">
+                <img src="bar-graph.png" class="bar-graph w-60" />
+            </div>
+        </div>
+        <div class="rightPara">
+            <div class="overview">
+                <h5 class="overview-title"> <img src="ca.png" class="pic" /> Data takes overview</h5>
+                <div class="chart-card">
+
+
+
+
+                    <p class="overview-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+                        distinctio officia nemo itaque
+                        numquam obcaecati quibusdam minima, aliquam vitae beatae corporis quos qui facilis cum eum
+                        doloribus quia debitis unde?</p>
+                </div>
+            </div>
+            <div class="overview">
+
+                <h5 class="overview-title"><img src="cb.png" class="pic" /> For each course</h5>
+                <div class="chart-card">
+
+
+                    <p class="overview-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+                        distinctio officia nemo itaque
+                        numquam obcaecati quibusdam minima, aliquam vitae beatae corporis quos qui facilis cum eum
+                        doloribus quia debitis unde?</p>
+                </div>
+            </div>
+            <div class="overview">
+                <h5 class="overview-title"><img src="cc.png" class="pic" /> You will get the certificate when you
+                    completed a course</h5>
+                <div class="chart-card">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Offers Section-->
+    <section class="offers-section">
+        <div class="image-para">
+            <img src="offers.png" class="offers-pic" />
+            <div class="shape-decor">
+                <div class="circle orange"></div>
+                <div class="quarter purple"></div>
+            </div>
+        </div>
+
+        <div class="offers-content">
+            <h2 class="offers-title">What Kind of Courses Offers<br>Learning Platform</h2>
+            <p class="offers-para">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut etiam<br>
+                maecenas posuere ultricies dis tempus magna mi id. Morbi a eu erat fringilla.
+            </p>
+
+            <div class="four-cards">
+                <div class="card-grid">
+                    <div class="offer-card">
+                        <strong><img src="white-people.png" class="icon-img" />10k+ Lessons</strong>
+                    </div>
+                    <div class="offer-card">
+
+                        <strong><img src="video.png" class="icon-img" />Qualified Teachers</strong>
+                    </div>
+                    <div class="offer-card">
+
+                        <strong><img src="white-people.png" class="icon-img" />1500+ Courses</strong>
+                    </div>
+                    <div class="offer-card">
+
+                        <strong><img src="film.png" class="icon-img" />200+ Free Videos</strong>
+                    </div>
+                </div>
+            </div>
+
+            <button class="offer-btn">Explore courses</button>
+        </div>
+    </section>
+
+    <!--Latest Courses-->
+    <section class="latest-courses text-center">
+        <h6 class="latest-title">OUR NEW COURSES FOR YOU</h6>
+        <h4 class="latest-subtitle">Latest Courses</h4>
+        <div class="courses-wrapper">
+            <i class="fas fa-angle-left nav-arrow"></i>
+
+            <div class="latest-card">
+
+                <img src="learn1.png" class="latest-pic" />
+                <h5 class="course-title">Learn modern architecture <span class="price">$120</span><br>Online course
+                </h5>
+                <div class="course-info">
+                    <span><i class="fas fa-star"></i>4.8 (250)</span>
+                    <span><img src="pink.png" class="i"> 12 Lessons</span>
+
+                </div>
+            </div>
+            <div class="latest-card">
+                <img src="learn2.png" class="latest-pic" />
+                <h5 class="course-title">Learn modern architecture <span class="price">$120</span><br>Online course</h5>
+                <div class="course-info">
+                    <span><i class="fas fa-star"></i> 4.8 (250)</span>
+                    <span><img src="pink.png" class="i"> 12 Lessons</span>
+
+                </div>
+            </div>
+            <div class="latest-card">
+                <img src="learn3.png" class="latest-pic" />
+                <h5 class="course-title">Learn modern architecture <span class="price">$120</span><br>Online course</h5>
+                <div class="course-info">
+                    <span><i class="fas fa-star"></i> 4.8 (250)</span>
+                    <span><img src="pink.png" class="i"> 12 Lessons</span>
+
+                </div>
+            </div>
+            <i class="fas fa-angle-right nav-arrow"></i>
+        </div>
+    </section>
+
+    <!--Browse Courses-->
+    <section class="browse-courses text-center">
+        <h6 class="browse-title">OUR NEW COURSES FOR YOU</h6>
+        <h4 class="browse-subtitle">Browse Courses</h4>
+        <button class="category-tab active">Graphic</button>
+        <button class="category-tab">Business</button>
+        <button class="category-tab">Finance and Banking</button>
+        <button class="category-tab">UIUX</button>
+        <button class="category-tab">Photograph</button>
+        <button class="category-tab">color</button>
+        <div class="browse-wrapper">
+            <i class="fas fa-angle-left nav-arrow"></i>
+
+            <div class="browse-card">
+                <img src="browser.png" class="browse-pic" />
+                <button style="color: #655ce4; background-color: white;border-radius: 15px;">Advanced</button>
+                <h5 class="browse-title">Learn modern architecture<br>Online course</h5>
+                <div class="browse-info">
+                    <span><i class="fas fa-star"></i> 4.8 (250)</span>
+                    <span><img src="clock.png">06:00:00</span>
+
+                </div>
+                <span class="price">FREE</span>
+            </div>
+            <div class="browse-card">
+                <img src="browser1.png" class="browse-pic" />
+                <button style="color: #655ce4;background-color: white;border-radius: 15px;">Advanced</button>
+                <h5 class="browse-title">Learn modern architecture<br>Online course</h5>
+                <div class="browse-info">
+                    <span><i class="fas fa-star"></i> 4.8 (250)</span>
+                    <span><img src="clock.png"> 06:00:00</span>
+
+                </div>
+                <span class="price">FREE</span>
+            </div>
+            <div class="browse-card">
+                <img src="browser2.png" class="browse-pic" />
+                <button style="color: #655ce4;background-color: white;border-radius: 15px;">Beginner</button>
+                <h5 class="browse-title">Learn modern architecture<br>Online course</h5>
+                <div class="browse-info">
+                    <span><i class="fas fa-star"></i> 4.8 (250)</span>
+                    <span><img src="clock.png"> 06:00:00</span>
+
+                </div>
+                <span class="price">FREE</span>
+            </div>
+            <i class="fas fa-angle-right nav-arrow"></i>
+        </div>
+    </section>
+
+    <!--Follow Steps-->
+    <section class="follow-steps">
+        <div class="follow-left">
+            <div class="follow-pic-card">
+                <img src="https://img.freepik.com/free-vector/rocket-lauching-background_1212-360.jpg"
+                    class="pic-follow w-20" />
+            </div>
+            <h3 class="follow-title"> Follow few steps and start learning</h3>
+            <p class="follow-para">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et. Nam, nulla est a
+                recusandae
+                molestiae provident enim aliquam, maxime sapiente expedita ab explicabo nesciunt quis debitis ipsam!
+        </div>
+        <div class="follow-right">
+            <div class="row">
+                <div class="follow-card">
+                    <h3>01</h3>
+                    <h5>GOALS FOR UNIT OF STUDY</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et.</p>
+
+                </div>
+                <div class="follow-card">
+                    <h3>02</h3>
+                    <h5>STRUCTURE OF STUDY</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="follow-card">
+                    <h3>03</h3>
+                    <h5>SEQUENCE FOR UNIT OF STUDY</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et.</p>
+                </div>
+                <div class="follow-card">
+                    <h3>04</h3>
+                    <h5>TIMELINE OF STUDY</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odit beatae et.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Register-->
+    <section class="register">
+        <div class="left-reg">
+            <img src="freepik__background__30450.png" class="pic-reg" />
+        </div>
+        <div class="right-reg">
+            <h2 class="reg-title">Register & Enroll Now, Get 60% Discount</h2>
+            <div class="reg-wid">
+                <button class="reg-btn btn btn-primary">Start Free Trial</button>
+                <p class="reg-subtitle"> $19.00/month </p>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3><i class="fas fa-graduation-cap"></i> <span class="brand">Hope</span> LMS</h3>
+                <p>A service or transaction in which no physical goods are transferred from the seller to the buyer. The
+                    benefits of such a service are</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Test Exam</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="#">UI/UX</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Mobile and Banking</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Get Update Newsletter</h4>
+                <p>Subscribe to get the latest news from us</p>
+                <div class="newsletter-box">
+                    <input type="email" placeholder="Email" />
+                    <button><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom d-flex justify-content-start align-items-end">
+            <p>Copyright&copy;2022</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

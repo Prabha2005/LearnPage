@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>JavaScript Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <button onclick="print()">Click</button>
+        <p id="answer">this is</p>
+      
+        <script>
+            
+            function print() {
+                let a = document.getElementById("num1").value;
+            let b = document.getElementById("num2").value;
+                document.getElementById("answer").innerHTML = "The value of a + b is: " + (a + b);
+            }
+</script>
+</body>
+
+</html>
